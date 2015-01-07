@@ -5,13 +5,13 @@ import java.io.*;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-
+        BibliotecaApp application = new BibliotecaApp();
+        application.run();
     }
 
     public void run(){
-        BibliotecaApp application = new BibliotecaApp();
-        application.welcome();
-        application.listBooks();
+        this.welcome();
+        this.listBooks();
     }
 
     public void welcome(){
