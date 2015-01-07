@@ -26,9 +26,14 @@ public class BibliotecaApp {
 
             String line = null;
 
+            System.out.printf("%-32s%-32s%-32s\n", "Title", "Author", "Year Published");
             while ((line = reader.readLine()) != null){
-                line = line.split(",")[0];
-                System.out.println(line);
+                String[] details = line.split(", ");
+                String title = details[0];
+                String author = details[1];
+                String publishYear = details[2];
+
+                System.out.printf("%-32s%-32s%-32s\n", title, author, publishYear);
             }
             reader.close();
 

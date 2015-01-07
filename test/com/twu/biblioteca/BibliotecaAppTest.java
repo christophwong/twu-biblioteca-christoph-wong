@@ -7,7 +7,9 @@ import org.junit.Test;
 
 import java.io.*;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
+
+import static org.hamcrest.CoreMatchers.*;
 
 public class BibliotecaAppTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -31,6 +33,8 @@ public class BibliotecaAppTest {
 
     @Test public void testDisplayOfBookList(){
         application.listBooks();
-        assertEquals("The Old Man and the Sea\nThe Stranger\n", outputStream.toString());
+        assertThat(outputStream.toString(), containsString("The Old Man and the Sea"));
+        assertThat(outputStream.toString(), containsString("Albert Camus"));
+        assertThat(outputStream.toString(), containsString("1951"));
     }
 }
