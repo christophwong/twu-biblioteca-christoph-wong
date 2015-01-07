@@ -25,11 +25,12 @@ public class BibliotecaAppTest {
 
     @Test
     public void testDisplayOfWelcomeMessage() {
-        application.run();
+        application.welcome();
         assertEquals("Welcome to the Biblioteca Application\n",outputStream.toString());
     }
 
     @Test public void testDisplayOfBookList(){
-
+        application.listBooks();
+        assertEquals("The Old Man and The Sea\nThe Stranger\n", outputStream.toString());
     }
 }

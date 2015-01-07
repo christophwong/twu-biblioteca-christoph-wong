@@ -14,4 +14,9 @@ public class BibliotecaApp {
     public void welcome(){
         System.out.println("Welcome to the Biblioteca Application");
     }
+
+    public void listBooks(){
+        System.out.println("The Old Man and The Sea");
+        System.out.println("The Stranger");
+    }
 }
