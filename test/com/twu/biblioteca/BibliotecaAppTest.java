@@ -25,8 +25,7 @@ public class BibliotecaAppTest {
 
     private BibliotecaApp application = new BibliotecaApp();
 
-    @Test
-    public void testDisplayOfWelcomeMessage() {
+    @Test public void testDisplayOfWelcomeMessage() {
         application.welcome();
         assertEquals("Welcome to the Biblioteca Application\n",outputStream.toString());
     }
@@ -36,5 +35,10 @@ public class BibliotecaAppTest {
         assertThat(outputStream.toString(), containsString("The Old Man and the Sea"));
         assertThat(outputStream.toString(), containsString("Albert Camus"));
         assertThat(outputStream.toString(), containsString("1951"));
+    }
+
+    @Test public void testDisplayofMenu(){
+        application.showmenu();
+        assertThat(outputStream.toString(), containsString("List Books"));
     }
 }

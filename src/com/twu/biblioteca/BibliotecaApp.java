@@ -11,7 +11,7 @@ public class BibliotecaApp {
 
     public void run(){
         this.welcome();
-        this.listBooks();
+        this.showmenu();
     }
 
     public void welcome(){
@@ -40,5 +40,9 @@ public class BibliotecaApp {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void showmenu() {
+        System.out.println("List Books");
     }
 }
