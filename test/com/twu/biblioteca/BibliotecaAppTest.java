@@ -25,7 +25,11 @@ public class BibliotecaAppTest {
 
     @Test
     public void testDisplayOfWelcomeMessage() {
-        application.welcome();
+        application.run();
         assertEquals("Welcome to the Biblioteca Application\n",outputStream.toString());
+    }
+
+    @Test public void testDisplayOfBookList(){
+
     }
 }
