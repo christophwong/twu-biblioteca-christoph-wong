@@ -31,6 +31,6 @@ public class BibliotecaAppTest {
 
     @Test public void testDisplayOfBookList(){
         application.listBooks();
-        assertEquals("The Old Man and The Sea\nThe Stranger\n", outputStream.toString());
+        assertEquals("The Old Man and the Sea\nThe Stranger\n", outputStream.toString());
     }
 }

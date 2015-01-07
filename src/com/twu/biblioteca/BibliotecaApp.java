@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.io.*;
+
 public class BibliotecaApp {
 
     public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class BibliotecaApp {
     public void run(){
         BibliotecaApp application = new BibliotecaApp();
         application.welcome();
+        application.listBooks();
     }
 
     public void welcome(){
@@ -16,7 +19,21 @@ public class BibliotecaApp {
     }
 
     public void listBooks(){
-        System.out.println("The Old Man and The Sea");
-        System.out.println("The Stranger");
+        try {
+            File bookList = new File("books.txt");
+            FileReader fileReader = new FileReader(bookList);
+            BufferedReader reader = new BufferedReader(fileReader);
+
+            String line = null;
+
+            while ((line = reader.readLine()) != null){
+                line = line.split(",")[0];
+                System.out.println(line);
+            }
+            reader.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
