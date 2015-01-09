@@ -8,6 +8,15 @@ public class BibliotecaApp {
         BibliotecaApp application = new BibliotecaApp();
         application.welcome();
         application.showmenu();
+        char option = 'q';
+        do{
+            try {
+                option = (char) System.in.read();
+                application.relayOptions(option);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }while(option != 'q');
     }
 
 
@@ -40,6 +49,15 @@ public class BibliotecaApp {
     }
 
     public void showmenu() {
-        System.out.println("List Books");
+        System.out.println("1. List Books");
+        System.out.println("Choose an option number or type 'q' to quit application.");
+    }
+
+    public void relayOptions(char option) {
+        switch(option){
+            case '1':
+                this.listBooks();
+                break;
+        }
     }
 }

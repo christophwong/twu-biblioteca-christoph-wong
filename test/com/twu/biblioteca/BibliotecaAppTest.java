@@ -41,4 +41,9 @@ public class BibliotecaAppTest {
         application.showmenu();
         assertThat(outputStream.toString(), containsString("List Books"));
     }
+
+    @Test public void testAbleToChooseOption(){
+        application.relayOptions('1');
+        assertThat(outputStream.toString(), containsString("The Old Man and the Sea"));
+    }
 }
