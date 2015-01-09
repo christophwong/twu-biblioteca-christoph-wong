@@ -6,13 +6,10 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         BibliotecaApp application = new BibliotecaApp();
-        application.run();
+        application.welcome();
+        application.showmenu();
     }
 
-    public void run(){
-        this.welcome();
-        this.showmenu();
-    }
 
     public void welcome(){
         System.out.println("Welcome to the Biblioteca Application");
