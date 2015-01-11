@@ -5,15 +5,20 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args){
         BibliotecaApp application = new BibliotecaApp();
         application.welcome();
         application.showmenu();
         int option;
         do {
             Scanner scanner = new Scanner(System.in);
-            option = scanner.nextInt();
-            application.relayOptions(option);
+            if(scanner.hasNextInt()) {
+                option = scanner.nextInt();
+                application.relayOptions(option);
+            }else{
+                System.out.println("Please enter a number");
+                option = 8;
+            }
         }while(option != 2);
 
     }
