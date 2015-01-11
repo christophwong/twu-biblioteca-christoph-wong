@@ -43,7 +43,12 @@ public class BibliotecaAppTest {
     }
 
     @Test public void testAbleToChooseOption(){
-        application.relayOptions('1');
+        application.relayOptions(1);
         assertThat(outputStream.toString(), containsString("The Old Man and the Sea"));
+    }
+
+    @Test public void testInvalidOptionCausesRepromt(){
+        application.relayOptions(32);
+        assertThat(outputStream.toString(), containsString("Invalid option"));
     }
 }

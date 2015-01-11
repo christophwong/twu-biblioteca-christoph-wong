@@ -1,22 +1,21 @@
 package com.twu.biblioteca;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         BibliotecaApp application = new BibliotecaApp();
         application.welcome();
         application.showmenu();
-        char option = 'q';
-        do{
-            try {
-                option = (char) System.in.read();
-                application.relayOptions(option);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }while(option != 'q');
+        int option;
+        do {
+            Scanner scanner = new Scanner(System.in);
+            option = scanner.nextInt();
+            application.relayOptions(option);
+        }while(option != 2);
+
     }
 
 
@@ -50,14 +49,19 @@ public class BibliotecaApp {
 
     public void showmenu() {
         System.out.println("1. List Books");
-        System.out.println("Choose an option number or type 'q' to quit application.");
+        System.out.println("2. Quit");
+        System.out.println("Choose an option number");
     }
 
-    public void relayOptions(char option) {
-        switch(option){
-            case '1':
-                this.listBooks();
-                break;
+    public void relayOptions(int option) {
+        if(option == 1){
+            this.listBooks();
+        }else if (option == 2){
+            System.out.println("Goodbye!");
         }
+        else {
+            System.out.println("Invalid option, please try again.");
+        }
+
     }
 }
