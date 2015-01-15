@@ -50,4 +50,13 @@ public class Library {
     public int bookCount(){
         return bookList.size();
     }
+
+    public void listBooks(){
+        System.out.printf("%-32s%-32s%-32s\n", "Title", "Author", "Year Published");
+        for (Book book : this.bookList){
+
+            System.out.printf("%-32s%-32s%-32s\n", book.title, book.author, book.yearPublished);
+
+        }
+    }
 }

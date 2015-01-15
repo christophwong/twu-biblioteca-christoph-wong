@@ -5,6 +5,15 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
+    private Library library;
+
+    public BibliotecaApp(){
+        this("books.txt");
+    }
+    public BibliotecaApp(String fileName){
+        this.library = new Library(fileName);
+    }
+
     public static void main(String[] args){
         BibliotecaApp application = new BibliotecaApp();
         application.welcome();
@@ -29,27 +38,7 @@ public class BibliotecaApp {
     }
 
     public void listBooks(){
-        try {
-            File bookList = new File("books.txt");
-            FileReader fileReader = new FileReader(bookList);
-            BufferedReader reader = new BufferedReader(fileReader);
-
-            String line = null;
-
-            System.out.printf("%-32s%-32s%-32s\n", "Title", "Author", "Year Published");
-            while ((line = reader.readLine()) != null){
-                String[] details = line.split(", ");
-                String title = details[0];
-                String author = details[1];
-                String publishYear = details[2];
-
-                System.out.printf("%-32s%-32s%-32s\n", title, author, publishYear);
-            }
-            reader.close();
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        this.library.listBooks();
     }
 
     public void showmenu() {
