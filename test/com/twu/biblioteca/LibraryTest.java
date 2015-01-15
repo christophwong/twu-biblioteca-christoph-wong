@@ -29,4 +29,8 @@ public class LibraryTest {
         assertFalse("after check out book should not be in library", library1.hasBook(book1));
     }
 
+    @Test public void testLibraryCanLoadFromFile(){
+        Library bookLibrary = new Library("books.txt");
+        assertEquals(bookLibrary.bookCount(), 2);
+    }
 }
