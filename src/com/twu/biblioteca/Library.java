@@ -65,4 +65,7 @@ public class Library {
         }
     }
 
+    public void returnBook(Book book) {
+        this.addBook(book);
+    }
 }

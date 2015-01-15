@@ -63,9 +63,13 @@ public class BibliotecaApp {
     }
 
     public void checkOut(int id){
-        Book itemToCheckOut = library.bookList.get(id);
-        System.out.println("Thank you! Enjoy the book");
-        library.checkOut(itemToCheckOut);
+        if(id < library.bookList.size()) {
+            Book itemToCheckOut = library.bookList.get(id);
+            System.out.println("Thank you! Enjoy the book");
+            library.checkOut(itemToCheckOut);
+        } else{
+            System.out.println("Book is unavailable, please select another book");
+        }
     }
 
     public void promptCheckOut(){

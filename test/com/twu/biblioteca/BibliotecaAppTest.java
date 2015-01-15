@@ -63,4 +63,20 @@ public class BibliotecaAppTest {
         application.checkOut(0);
         assertThat(outputStream.toString(), containsString("Thank you! Enjoy the book"));
     }
+
+    @Test public void testCheckOutOfUnavailableBookGivesWarning(){
+        application.checkOut(4);
+        assertThat(outputStream.toString(), containsString("Book is unavailable"));
+    }
+
+    @Test public void testReturnBookShouldShowUp(){
+        Library library = new Library();
+        Book book1 = new Book("test title", "test author", "2011", false);
+        library.addBook(book1);
+        library.checkOut(book1);
+        library.returnBook(book1);
+
+        assertTrue("after return, library should have the book", library.hasBook(book1));
+
+    }
 }

@@ -12,7 +12,7 @@ public class LibraryTest {
 
     @Test public void testLibraryCanAddBooks(){
         library.addBook(book1);
-        assertTrue("The Library does not have the added book", library.hasBook(book1));
+        assertTrue("The Library should have the added book", library.hasBook(book1));
     }
 
     @Test public void testLibraryCorrectlyChecksIfItHasBook(){
