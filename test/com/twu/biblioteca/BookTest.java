@@ -16,4 +16,12 @@ public class BookTest {
     @Test public void bookShouldHaveAuthor () {
         assertEquals(oldMan.author, "Ernest Hemmingway");
     }
+
+    @Test public void bookShouldHaveYearPublished(){
+        assertEquals(oldMan.yearPublished, "1951");
+    }
+
+    @Test public void bookShouldHaveCheckedOutStatus(){
+        assertEquals(oldMan.isCheckedOut, false);
+    }
 }
