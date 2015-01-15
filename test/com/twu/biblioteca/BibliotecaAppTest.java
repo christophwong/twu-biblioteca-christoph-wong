@@ -25,8 +25,7 @@ public class BibliotecaAppTest {
 
     private BibliotecaApp application = new BibliotecaApp();
 
-    @Test
-    public void testDisplayOfWelcomeMessage() {
+    @Test public void testDisplayOfWelcomeMessage() {
         application.welcome();
         assertEquals("Welcome to the Biblioteca Application\n",outputStream.toString());
     }
@@ -36,5 +35,48 @@ public class BibliotecaAppTest {
         assertThat(outputStream.toString(), containsString("The Old Man and the Sea"));
         assertThat(outputStream.toString(), containsString("Albert Camus"));
         assertThat(outputStream.toString(), containsString("1951"));
+    }
+
+    @Test public void testDisplayOfMenu(){
+        application.showmenu();
+        assertThat(outputStream.toString(), containsString("List Books"));
+    }
+
+    @Test public void testAbleToChooseOption(){
+        application.relayOptions(1);
+        assertThat(outputStream.toString(), containsString("The Old Man and the Sea"));
+    }
+
+    @Test public void testInvalidOptionCausesRepromt(){
+        application.relayOptions(32);
+        assertThat(outputStream.toString(), containsString("Invalid option"));
+    }
+
+    @Test public void testCheckOutBookShouldNotShowUpInList(){
+        application.checkOut(1);
+        application.listBooks();
+        assertThat(outputStream.toString(), containsString("The Old Man and the Sea"));
+        assertThat(outputStream.toString(), not(containsString("Albert Camus")));
+    }
+
+    @Test public void testCheckOutShouldReplyWithThankYou(){
+        application.checkOut(0);
+        assertThat(outputStream.toString(), containsString("Thank you! Enjoy the book"));
+    }
+
+    @Test public void testCheckOutOfUnavailableBookGivesWarning(){
+        application.checkOut(4);
+        assertThat(outputStream.toString(), containsString("Book is unavailable"));
+    }
+
+    @Test public void testReturnBookShouldShowUp(){
+        Library library = new Library();
+        Book book1 = new Book("test title", "test author", "2011", false);
+        library.addBook(book1);
+        library.checkOut(book1);
+        library.returnBook(book1);
+
+        assertTrue("after return, library should have the book", library.hasBook(book1));
+
     }
 }
