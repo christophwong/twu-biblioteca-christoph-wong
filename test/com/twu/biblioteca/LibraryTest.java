@@ -33,4 +33,10 @@ public class LibraryTest {
         Library bookLibrary = new Library("books.txt");
         assertEquals(bookLibrary.bookCount(), 2);
     }
+
+    @Test public void testHasBookFromTitle(){
+        Library library2 = new Library();
+        library2.addBook(book1);
+        assertTrue(library2.hasBook("test"));
+    }
 }

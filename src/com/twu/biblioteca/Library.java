@@ -43,6 +43,11 @@ public class Library {
         return bookList.contains(book);
     }
 
+    public Boolean hasBook(String title){
+        Book testBook = new Book(title, "noauthor", "fakeyear", false);
+        return bookList.contains(testBook);
+    }
+
     public void checkOut(Book book) {
         bookList.remove(book);
     }
@@ -59,4 +64,5 @@ public class Library {
             id++;
         }
     }
+
 }
