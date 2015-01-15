@@ -27,7 +27,7 @@ public class BibliotecaApp {
                 System.out.println("Please enter a number");
                 option = 8;
             }
-        }while(option != 3);
+        }while(option != 4);
 
     }
 
@@ -43,7 +43,8 @@ public class BibliotecaApp {
     public void showmenu() {
         System.out.println("1. List Books");
         System.out.println("2. Checkout Books");
-        System.out.println("3. Quit");
+        System.out.println("3. Return Books");
+        System.out.println("4. Quit");
         System.out.println("Choose an option number");
     }
 
@@ -52,8 +53,10 @@ public class BibliotecaApp {
             this.listBooks();
         }else if (option == 2){
             this.promptCheckOut();
+        } else if (option == 3){
+            this.promptReturn();
         }
-        else if (option == 3){
+        else if (option == 4){
             System.out.println("Goodbye!");
         }
         else {
@@ -62,13 +65,33 @@ public class BibliotecaApp {
 
     }
 
+    private void promptReturn() {
+        library.listCheckedOutBooks();
+        System.out.println("Input the ID of the book that you want to return:");
+        Scanner idScanner = new Scanner(System.in);
+        int id = idScanner.nextInt();
+        this.returnBook(id);
+    }
+
+    private void returnBook(int id){
+        if(id < library.checkedOutBookList.size()){
+            Book itemToReturn = library.checkedOutBookList.get(id);
+            System.out.println("Thank you for returning the book: " + itemToReturn.title);
+            library.returnBook(itemToReturn);
+        } else{
+            System.out.println("Invalid Selection, if you book is not on the list, please check that you are at the correct library.");
+            showmenu();
+        }
+    }
+
     public void checkOut(int id){
         if(id < library.bookList.size()) {
             Book itemToCheckOut = library.bookList.get(id);
             System.out.println("Thank you! Enjoy the book");
             library.checkOut(itemToCheckOut);
         } else{
-            System.out.println("Book is unavailable, please select another book");
+            System.out.println("Book is unavailable, please try again");
+            showmenu();
         }
     }
 

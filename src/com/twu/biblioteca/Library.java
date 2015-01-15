@@ -59,9 +59,17 @@ public class Library {
     }
 
     public void listBooks(){
+        this.listBooks(bookList);
+    }
+
+    public void listCheckedOutBooks(){
+        this.listBooks(checkedOutBookList);
+    }
+
+    public void listBooks(ArrayList<Book> itemList){
         System.out.printf("%-32s%-32s%-32s%-32s\n", "Id", "Title", "Author", "Year Published");
         int id = 0;
-        for (Book book : this.bookList){
+        for (Book book : itemList){
             System.out.printf("%-32d%-32s%-32s%-32s\n", id, book.title, book.author, book.yearPublished);
             id++;
         }
