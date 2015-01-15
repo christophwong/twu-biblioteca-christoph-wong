@@ -51,4 +51,16 @@ public class BibliotecaAppTest {
         application.relayOptions(32);
         assertThat(outputStream.toString(), containsString("Invalid option"));
     }
+
+    @Test public void testCheckOutBookShouldNotShowUpInList(){
+        application.checkOut(1);
+        application.listBooks();
+        assertThat(outputStream.toString(), containsString("The Old Man and the Sea"));
+        assertThat(outputStream.toString(), not(containsString("Albert Camus")));
+    }
+
+    @Test public void testCheckOutShouldReplyWithThankYou(){
+        application.checkOut(0);
+        assertThat(outputStream.toString(), containsString("Thank you! Enjoy the book"));
+    }
 }
