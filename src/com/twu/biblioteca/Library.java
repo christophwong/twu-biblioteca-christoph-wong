@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Library {
 
     public ArrayList<Book> bookList = new ArrayList<Book>();
+    public ArrayList<Book> checkedOutBookList = new ArrayList<Book>();
 
     public Library(){
         this.bookList = new ArrayList<Book>();
@@ -50,6 +51,7 @@ public class Library {
 
     public void checkOut(Book book) {
         bookList.remove(book);
+        checkedOutBookList.add(book);
     }
 
     public int bookCount(){
@@ -66,6 +68,7 @@ public class Library {
     }
 
     public void returnBook(Book book) {
-        this.addBook(book);
+        bookList.add(book);
+        checkedOutBookList.remove(book);
     }
 }
