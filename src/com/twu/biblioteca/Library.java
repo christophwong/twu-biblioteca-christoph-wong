@@ -13,4 +13,8 @@ public class Library {
     public Boolean hasBook(Book book){
         return bookList.contains(book);
     }
+
+    public void checkOut(Book book) {
+        bookList.remove(book);
+    }
 }

@@ -19,4 +19,14 @@ public class LibraryTest {
         assertFalse("Library should not have this book", library.hasBook(book2));
     }
 
+    @Test public void testCheckedOutBookIsNotInList(){
+        Library library1 = new Library();
+        library1.addBook(book1);
+        library1.addBook(book2);
+        library1.addBook(book3);
+        library1.checkOut(book1);
+
+        assertFalse("after check out book should not be in library", library1.hasBook(book1));
+    }
+
 }

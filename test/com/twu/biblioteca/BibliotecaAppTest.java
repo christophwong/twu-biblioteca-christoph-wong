@@ -37,7 +37,7 @@ public class BibliotecaAppTest {
         assertThat(outputStream.toString(), containsString("1951"));
     }
 
-    @Test public void testDisplayofMenu(){
+    @Test public void testDisplayOfMenu(){
         application.showmenu();
         assertThat(outputStream.toString(), containsString("List Books"));
     }
